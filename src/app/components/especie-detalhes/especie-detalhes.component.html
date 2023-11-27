@@ -1,0 +1,80 @@
+<span class="info-page"><a [routerLink]="['/']">página inicial</a> > <a [routerLink]="['/especies']">espécies</a> >
+    {{specie.name}}</span>
+<div class="container" *ngIf="dataLoaded">
+    <div class="content">
+        <div class="especies-details">
+            <div class="especies">
+                <h1>{{ specie.name }} </h1>
+            </div>
+            <div class="planet">
+                <p><span>Planeta:</span> {{ homeworldDetails.name }}</p>
+            </div>
+
+            <div class="info">
+                <p><span>Nome:</span> {{ specie.name }}</p>
+                <p><span>Classificação:</span> {{ specie.classification }}</p>
+                <p><span>Designação: </span>{{specie.designation}}</p>
+                <p><span>Altura média:</span> {{specie.average_height}}</p>
+                <p><span>Cor de cabelo: </span>{{specie.hair_colors}}</p>
+                <p><span>Cor dos olhos:</span> {{specie.eye_colors}}</p>
+                <p><span>Expectativa média de vida : </span>{{specie.average_lifespan}}</p>
+                <p><span>Linguagem:</span> {{specie.language}}</p>
+            </div>
+        </div>
+
+        <div class="links-container">
+            <h3>Links Relacionados</h3>
+
+
+            <div class="links-content">
+
+                <div>
+                    <h4>Filmes</h4>
+                    <li *ngFor="let filmDetail of filmDetails">
+                        <a [routerLink]="['/filme', filmDetail.id]">
+                            <p>{{ filmDetail.title }}</p>
+                        </a>
+                    </li>
+                </div>
+                <div>
+                    <h4 class="title-resident">Personagens</h4>
+                    <ul class="listResident">
+                        <div class="row">
+                            <ng-container *ngFor="let personDetail of personDetails; let i = index">
+                                <li *ngIf="i < personDetails.length / 3" class="column">
+                                    <a [routerLink]="['/pessoa', personDetails[i].id]">
+                                        <p>{{ personDetails[i].name }}</p>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let personDetail of personDetails; let i = index">
+                                <li *ngIf="i >= personDetails.length / 3 && i < (personDetails.length / 3) * 2"
+                                    class="column">
+                                    <a [routerLink]="['/pessoa', personDetails[i].id]">
+                                        <p>{{ personDetails[i].name }}</p>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let personDetail of personDetails; let i = index">
+                                <li *ngIf="i >= (personDetails.length / 3) * 2" class="column">
+                                    <a [routerLink]="['/pessoa', personDetails[i].id]">
+                                        <p>{{ personDetails[i].name }}</p>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </div>
+                    </ul>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

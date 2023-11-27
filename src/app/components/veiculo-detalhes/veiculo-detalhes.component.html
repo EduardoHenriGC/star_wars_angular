@@ -1,0 +1,54 @@
+<span class="info-page"><a [routerLink]="['/']">página inicial</a> > <a [routerLink]="['/veiculos']">veículos</a> >
+    {{vehicle.name}}</span>
+<div class="container" *ngIf="dataLoaded">
+    <div class="content">
+        <div class="vehicle-details">
+            <div class="vehicle">
+                <h1>{{ vehicle.name }} </h1>
+            </div>
+
+
+            <div class="info">
+                <p><span>Modelo:</span> {{ vehicle.model }}</p>
+                <p><span>Fabricante:</span> {{ vehicle.manufacturer }}</p>
+                <p><span>Custo em créditos: </span>{{vehicle.cost_in_credits}}</p>
+                <p><span>Comprimento:</span> {{vehicle.length}}</p>
+                <p><span>Velocidade máxima de atmosfera: </span>{{vehicle.max_atmosphering_speed}}</p>
+                <p><span>Equipe:</span> {{vehicle.crew}}</p>
+                <p><span>Passageiras:</span> {{vehicle.passengers}}</p>
+                <p><span>Capacidade de carga: </span>{{vehicle.cargo_capacity}}</p>
+                <p><span>Consumíveis:</span> {{vehicle.consumables}}</p>
+                <p><span>Classe do veículo: </span>{{vehicle.vehicle_class}}</p>
+
+            </div>
+        </div>
+
+        <div class="links-container">
+            <h3>Links Relacionados</h3>
+
+
+            <div class="links-content">
+                <div>
+                    <h4>Filmes</h4>
+                    <li *ngFor="let filmDetail of filmDetails">
+                        <a [routerLink]="['/filme', filmDetail.id]">
+                            <p>{{ filmDetail.title }}</p>
+                        </a>
+                    </li>
+                </div>
+                <div>
+                    <h4>Piloto</h4>
+                    <li *ngFor="let pilotsDetail of pilotsDetails">
+                        <a [routerLink]="['/pessoa', pilotsDetail.id]">
+                            <p>{{ pilotsDetail.name }}</p>
+                        </a>
+                    </li>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

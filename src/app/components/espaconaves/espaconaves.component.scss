@@ -1,0 +1,117 @@
+.container {
+
+    height: 100%;
+}
+
+.info-page {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 22px;
+    align-items: center;
+}
+
+span a {
+    text-decoration: none;
+    color: #111;
+}
+
+.info-page input {
+    height: 39px;
+    width: 479px;
+    border-radius: 0.25rem;
+}
+
+.info {
+    font-size: 0.9rem;
+    font-weight: 500;
+
+
+}
+
+.input-container {
+    position: relative;
+}
+
+.search-input {
+    padding-right: 20px;
+    /* Adapte conforme necessário para o tamanho do ícone "X" */
+}
+
+.clear-icon {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    /* Ajuste conforme necessário para a posição desejada */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+
+}
+
+
+.starships-content {
+
+    border: 1px solid #777777;
+    border-radius: 10px;
+    width: 889px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 40px;
+    position: relative;
+}
+
+
+
+.link {
+
+    display: flex;
+    justify-content: space-between;
+    width: 642.65px;
+    margin: 0 auto;
+    padding: 15px;
+    cursor: pointer;
+}
+
+span {
+    font-size: 26px;
+
+}
+
+hr {
+    width: 642.65px;
+    ;
+}
+
+@media(max-width:1030px) {
+
+    .container {
+
+        height: auto;
+        width: 100%;
+
+
+    }
+
+    .starships-content {
+
+        width: 80%;
+        padding: 10px;
+
+    }
+
+    .link,
+    hr {
+        width: 80%;
+    }
+}
+
+@media(max-width:600px) {
+    .info-page input {
+
+        width: 130px;
+    }
+
+
+}

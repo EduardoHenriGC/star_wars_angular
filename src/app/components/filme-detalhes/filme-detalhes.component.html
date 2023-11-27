@@ -1,0 +1,90 @@
+<span class="info-page"><a [routerLink]="['/']">página inicial</a> > <a [routerLink]="['/filmes']">filmes</a> >
+    {{film.title}}</span>
+<div class="container" *ngIf="dataLoaded">
+    <div class="content">
+        <div class="film-details">
+            <div class="film-title">
+                <h1>{{ film.title }} </h1>
+            </div>
+
+
+            <div class="info">
+                <p><span>Epsódio:</span> {{ film.episode_id }}</p>
+                <p><span>Rastreamento de abertura:</span> {{ film.opening_crawl }}</p>
+                <p><span>Diretor:</span> {{ film.director }}</p>
+                <p><span>Produção:</span> {{ film.producer }}</p>
+                <p><span>Data de lançamento:</span> {{ film.release_date }}</p>
+            </div>
+        </div>
+
+        <div class="links-container">
+            <h3>Links Relacionados</h3>
+
+
+            <div class="links-content">
+                <div>
+                    <h4 class="title-resident">Espaçonaves</h4>
+                    <ul class="listResident">
+                        <div class="row">
+                            <ng-container *ngFor="let starshipDetail of starshipDetails; let i = index">
+                                <li *ngIf="i < starshipDetails.length / 2" class="column">
+                                    <a [routerLink]="['/espaconave', starshipDetails[i].id]">
+                                        <p>{{ starshipDetails[i].name }}</p>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let starshipDetail of starshipDetails; let i = index">
+                                <li *ngIf="i >= starshipDetails.length / 2" class="column">
+                                    <a [routerLink]="['/espaconave', starshipDetails[i].id]">
+                                        <p>{{ starshipDetails[i].name }}</p>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </div>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="title-resident">Personagens</h4>
+                    <ul class="listResident">
+                        <div class="row">
+                            <ng-container *ngFor="let charactersDetail of charactersDetails; let i = index">
+                                <li *ngIf="i < charactersDetails.length / 3" class="column">
+                                    <a [routerLink]="['/pessoa', charactersDetails[i].id]">
+                                        <p>{{ charactersDetails[i].name }}</p>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let charactersDetail of charactersDetails; let i = index">
+                                <li *ngIf="i >= charactersDetails.length / 3 && i < (charactersDetails.length / 3) * 2"
+                                    class="column">
+                                    <a [routerLink]="['/pessoa', charactersDetails[i].id]">
+                                        <p>{{ charactersDetails[i].name }}</p>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </div>
+                        <div class="row">
+                            <ng-container *ngFor="let charactersDetail of charactersDetails; let i = index">
+                                <li *ngIf="i >= (charactersDetails.length / 3) * 2" class="column">
+                                    <a [routerLink]="['/pessoa', charactersDetails[i].id]">
+                                        <p>{{ charactersDetails[i].name }}</p>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </div>
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

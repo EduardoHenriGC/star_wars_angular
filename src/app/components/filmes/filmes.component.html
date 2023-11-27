@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="info-page">
+        <span class="info"><a [routerLink]="['/']">página inicial</a> > filmes</span>
+        <div class="input-container">
+            <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Pesquisar"
+                class="search-input">
+            <span *ngIf="searchTerm" class="clear-icon" (click)="clearSearch()">X</span>
+        </div>
+
+
+    </div>
+
+    <div class="film-content" *ngIf="filmList.length > 0">
+        <div *ngFor="let film of filteredFilmList">
+            <a class="link" (click)="showFilmsDetails(film)"> {{ film.title }} <span>></span></a>
+            <hr />
+
+        </div>
+        <app-bg-list></app-bg-list>
+    </div>
+</div>

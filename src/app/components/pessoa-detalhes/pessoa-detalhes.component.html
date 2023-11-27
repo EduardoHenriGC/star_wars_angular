@@ -1,0 +1,47 @@
+<span class="info-page"><a [routerLink]="['/']">página inicial</a> > <a [routerLink]="['/pessoas']">pessoas</a> >
+    {{person.name}}</span>
+
+<div class="container" *ngIf="dataLoaded">
+    <div class="content">
+        <div class="person-details">
+            <div class="person">
+                <h1>{{ person.name }} </h1>
+            </div>
+            <div class="planet">
+                <p><span>Planeta:</span> {{ homeworldDetails?.name }}</p>
+            </div>
+
+            <div class="info">
+                <p><span>Altura:</span> {{ person.height }}</p>
+                <p><span>Peso:</span> {{ person.mass }}</p>
+                <p><span>Gênero: </span>{{person.gender}}</p>
+                <p><span>Cor da pele:</span> {{person.skin_color}}</p>
+                <p><span>Cor dos olhos: </span>{{person.eye_color}}</p>
+                <p><span>data de nascimento:</span> {{person.birth_year}}</p>
+            </div>
+        </div>
+
+        <div class="links-container">
+            <h3>Links Relacionados</h3>
+            <div class="links-content">
+                <div>
+                    <h4>Filmes</h4>
+                    <li *ngFor="let filmDetail of filmDetails">
+                        <a [routerLink]="['/filme', filmDetail.id]">
+                            <p>{{ filmDetail.title }}</p>
+                        </a>
+                    </li>
+                </div>
+                <div>
+                    <h4>Espaçonaves</h4>
+                    <li *ngFor="let starshipDetail of starshipDetails">
+                        <a [routerLink]="['/espaconave', starshipDetail.id]">
+                            <p>{{ starshipDetail.name }}</p>
+                        </a>
+                    </li>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

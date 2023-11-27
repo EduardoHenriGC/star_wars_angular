@@ -1,0 +1,56 @@
+<span class="info-page"><a [routerLink]="['/']">página inicial</a> > <a [routerLink]="['/espaconaves']">Espaçonaves</a>
+    >
+    {{starship.name}}</span>
+<div class="container" *ngIf="dataLoaded">
+    <div class="content">
+        <div class="starship-details">
+            <div class="person">
+                <h1>{{ starship.name }} </h1>
+            </div>
+
+
+            <div class="info">
+                <p><span>Modelo:</span> {{ starship.model }}</p>
+                <p><span>Fabricante:</span> {{ starship.manufacturer }}</p>
+                <p><span>Custo em créditos: </span>{{starship.cost_in_credits}}</p>
+                <p><span>Comprimento:</span> {{starship.length}}</p>
+                <p><span>Velocidade máxima de atmosfera: </span>{{starship.max_atmosphering_speed}}</p>
+                <p><span>Equipe:</span> {{starship.crew}}</p>
+                <p><span>Passageiras:</span> {{starship.passengers}}</p>
+                <p><span>Capacidade de carga: </span>{{starship.cargo_capacity}}</p>
+                <p><span>Consumíveis:</span> {{starship.consumables}}</p>
+                <p><span>Classificação de hiperdrive: </span>{{starship.hyperdrive_rating}}</p>
+                <p><span>MGLT: </span>{{starship.MGLT}}</p>
+                <p><span>Classe do veículo: </span>{{starship.starship_class}}</p>
+
+            </div>
+        </div>
+
+        <div class="links-container">
+            <h3>Links Relacionados</h3>
+
+            <div class="links-content">
+                <div>
+                    <h4>Filmes</h4>
+                    <li *ngFor="let filmDetail of filmDetails">
+                        <a [routerLink]="['/filme', filmDetail.id]">
+                            <p>{{ filmDetail.title }}</p>
+                        </a>
+                    </li>
+                </div>
+                <div>
+                    <h4>Piloto</h4>
+                    <li *ngFor="let pilotsDetail of pilotsDetails">
+                        <a [routerLink]="['/pessoa', pilotsDetail.id]">
+                            <p>{{ pilotsDetail.name }}</p>
+                        </a>
+                    </li>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

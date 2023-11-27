@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="info-page">
+        <span class="info"><a [routerLink]="['/']">página inicial</a> > espaçonaves</span>
+        <div class="input-container">
+            <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" placeholder="Pesquisar"
+                class="search-input">
+            <span *ngIf="searchTerm" class="clear-icon" (click)="clearSearch()">X</span>
+        </div>
+
+
+
+    </div>
+
+    <div class="starships-content" *ngIf="starshipsList.length > 0">
+        <div *ngFor="let starship of filteredStarshipsList">
+            <a class="link" (click)="showStarshipsDetails(starship)"> {{ starship.name }} <span>></span></a>
+            <hr />
+        </div>
+        <app-bg-list></app-bg-list>
+    </div>
+</div>
