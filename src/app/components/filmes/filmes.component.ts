@@ -35,9 +35,9 @@ export class FilmesComponent implements OnInit {
 
   clearSearch(): void {
     this.searchTerm = '';
+    this.filteredFilmList = this.filmList; // Garante que a lista completa seja exibida ao limpar a pesquisa
   }
 
-  // Função chamada ao digitar no input
   onSearch(): void {
     // Atualiza a lista filtrada com base na string de pesquisa
     this.filteredFilmList = this.filmList.filter(film =>
